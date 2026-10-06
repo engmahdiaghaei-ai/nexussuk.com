@@ -235,3 +235,113 @@ footer {
         font-size: 2rem;
     }
 }
+/* =========================================
+   Split Gateway Page Styles (Nexus UK)
+   ========================================= */
+.split-body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden; /* جلوگیری از اسکرول خوردن صفحه اصلی */
+}
+
+.split-container {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+}
+
+.split-pane {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    transition: flex 0.5s ease;
+    position: relative;
+}
+
+.split-pane:hover {
+    flex: 1.15; /* افکت بزرگ شدن بخشی که موس روی آن می‌‌رود */
+}
+
+.pane-content {
+    z-index: 2;
+    padding: 40px;
+    color: var(--white);
+}
+
+.pane-content i {
+    font-size: 4rem;
+    margin-bottom: 20px;
+}
+
+.pane-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+
+.pane-content p {
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    opacity: 0.9;
+}
+
+/* استایل بخش مالی */
+.finance-pane {
+    background: linear-gradient(rgba(11, 30, 54, 0.85), rgba(11, 30, 54, 0.85)), url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&q=80') center/cover;
+    background-color: var(--primary-color);
+}
+.finance-pane .pane-content i {
+    color: var(--secondary-color); /* طلایی */
+}
+
+/* استایل بخش تکنولوژی */
+.tech-pane {
+    background: linear-gradient(rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.9)), url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80') center/cover;
+    background-color: #0F172A;
+}
+.tech-pane .pane-content i {
+    color: #38BDF8; /* آبی روشن تکنولوژی */
+}
+
+.btn-split {
+    display: inline-block;
+    padding: 12px 30px;
+    border: 2px solid var(--white);
+    color: var(--white);
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 5px;
+    transition: all 0.3s;
+}
+
+.finance-pane .btn-split:hover {
+    background-color: var(--secondary-color);
+    border-color: var(--secondary-color);
+    color: var(--primary-color);
+}
+
+.tech-pane .btn-split:hover {
+    background-color: #38BDF8;
+    border-color: #38BDF8;
+    color: #0F172A;
+}
+
+/* ریسپانسیو برای موبایل */
+@media (max-width: 768px) {
+    .split-container {
+        flex-direction: column;
+    }
+    .split-body {
+        overflow: auto;
+    }
+    .split-pane {
+        padding: 50px 0;
+    }
+    .split-pane:hover {
+        flex: 1;
+    }
+}
