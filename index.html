@@ -3,35 +3,156 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nexus UK | Finance & Technology Solutions</title>
+    <title>Nexus UK | Bridging Finance & Technology</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-<body class="split-body">
-    <div class="split-container">
-        
-        <!-- دپارتمان مالی - نیلوفر -->
-        <div class="split-pane finance-pane">
-            <div class="pane-content">
-                <i class="fa-solid fa-chart-pie"></i>
-                <h2>Financial & Accounting</h2>
-                <p>Expert financial management, tax planning, and corporate bookkeeping services.</p>
-                <a href="finance.html" class="btn-split">View Finance Division</a>
+<body>
+    <!-- Navbar -->
+    <header>
+        <div class="container nav-container">
+            <div class="logo">
+                <h1>NEXUS<span>UK</span></h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#finance">Financial Services</a></li>
+                    <li><a href="#tech">Data & Tech</a></li>
+                    <li><a href="#products">Products</a></li>
+                    <li><a href="#contact" class="btn-primary">Get in Touch</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero">
+        <div class="hero-overlay"></div>
+        <div class="container hero-content">
+            <span class="badge">Enterprise Solutions</span>
+            <h2>Bridging Financial Precision with Intelligent Technology</h2>
+            <p>We are a unified agency delivering expert corporate financial management alongside cutting-edge software engineering and Business Intelligence.</p>
+            <div class="hero-buttons">
+                <a href="#finance" class="btn-gold">Explore Finance</a>
+                <a href="#tech" class="btn-cyan">Explore Tech</a>
             </div>
         </div>
+    </section>
 
-        <!-- دپارتمان تکنولوژی - مهدی -->
-        <div class="split-pane tech-pane">
-            <div class="pane-content">
-                <i class="fa-solid fa-code"></i>
-                <h2>Software & Data Engineering</h2>
-                <p>Custom software development, Business Intelligence (BI), and advanced data analytics.</p>
-                <!-- این لینک فعلا غیرفعاله تا صفحه‌ات رو بسازیم -->
-                <a href="#" class="btn-split">View Tech Solutions</a>
+    <!-- The Power of Integration (About) -->
+    <section id="about" class="container section-padding">
+        <div class="section-header text-center">
+            <h2>The Nexus Advantage</h2>
+            <p>Why choose between a financial advisor and a tech agency when you can have both?</p>
+        </div>
+        <div class="about-grid">
+            <div class="about-card">
+                <i class="fa-solid fa-scale-balanced"></i>
+                <h3>Financial Clarity</h3>
+                <p>We understand the numbers. From corporate bookkeeping to complex tax planning, we ensure your business remains compliant and profitable.</p>
+            </div>
+            <div class="about-card">
+                <i class="fa-solid fa-microchip"></i>
+                <h3>Technological Power</h3>
+                <p>We build the systems. With over a decade of expertise in data pipelines, SSIS, and custom software, we automate your growth.</p>
+            </div>
+            <div class="about-card">
+                <i class="fa-solid fa-chart-line"></i>
+                <h3>Actionable Intelligence</h3>
+                <p>We merge logic with data. Our custom Power BI dashboards turn raw financial data into strategic executive insights.</p>
             </div>
         </div>
+    </section>
 
-    </div>
+    <!-- Financial Division -->
+    <section id="finance" class="division-section">
+        <div class="container division-grid">
+            <div class="division-text">
+                <h4 class="gold-text">FINANCIAL DIVISION</h4>
+                <h2>Corporate Finance & Accounting</h2>
+                <p>Led by industry experts, our finance division provides rigorous accounting and strategic planning tailored for UK businesses.</p>
+                <ul class="feature-list">
+                    <li><i class="fa-solid fa-check gold-text"></i> Comprehensive Corporate Bookkeeping</li>
+                    <li><i class="fa-solid fa-check gold-text"></i> Strategic UK Tax Planning & Compliance</li>
+                    <li><i class="fa-solid fa-check gold-text"></i> Detailed Financial Reporting & Forecasting</li>
+                    <li><i class="fa-solid fa-check gold-text"></i> Payroll Management & Reconciliation</li>
+                </ul>
+            </div>
+            <div class="division-image">
+                <div class="img-placeholder finance-bg">
+                    <i class="fa-solid fa-file-invoice-dollar"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tech Division -->
+    <section id="tech" class="division-section bg-dark">
+        <div class="container division-grid reverse">
+            <div class="division-text">
+                <h4 class="cyan-text">TECHNOLOGY DIVISION</h4>
+                <h2>Data Engineering & Software Development</h2>
+                <p>Transforming complex business challenges into streamlined, automated software solutions and robust data architectures.</p>
+                <ul class="feature-list">
+                    <li><i class="fa-solid fa-check cyan-text"></i> Business Intelligence & Power BI Fabric</li>
+                    <li><i class="fa-solid fa-check cyan-text"></i> Custom Enterprise Software Architecture</li>
+                    <li><i class="fa-solid fa-check cyan-text"></i> Data Warehousing, SSIS & ETL Pipelines</li>
+                    <li><i class="fa-solid fa-check cyan-text"></i> Python & DAX Advanced Analytics</li>
+                </ul>
+            </div>
+            <div class="division-image">
+                <div class="img-placeholder tech-bg">
+                    <i class="fa-solid fa-network-wired"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products & Solutions -->
+    <section id="products" class="container section-padding">
+        <div class="section-header text-center">
+            <h2>Our Digital Products</h2>
+            <p>Proprietary tools built to elevate your business operations.</p>
+        </div>
+        <div class="products-grid">
+            <!-- Product 1: Nexusinsightcards -->
+            <div class="product-card">
+                <div class="product-badge">Available Now</div>
+                <h3>Nexusinsightcards</h3>
+                <p class="product-desc">Our flagship custom Power BI visual. Featuring dynamic themes, intelligent sparklines, smart footers, and advanced DAX configurations for next-level dashboard design.</p>
+                <a href="https://github.com/engmahdiaghaei-ai/Nexusinsightcards" target="_blank" class="btn-outline">View on GitHub</a>
+            </div>
+            <!-- Product 2: Financial Software Waitlist -->
+            <div class="product-card highlight-card">
+                <div class="product-badge coming-soon">Coming Soon</div>
+                <h3>Nexus FinOS</h3>
+                <p class="product-desc">The ultimate automated financial management platform for SMEs. Combining our accounting expertise with robust software engineering.</p>
+                <form class="waitlist-form">
+                    <input type="email" placeholder="Enter your email to join waitlist" required>
+                    <button type="submit" class="btn-primary">Join Waitlist</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <h2>NEXUS<span>UK</span></h2>
+                <p>Your partner in financial precision and technological innovation.</p>
+            </div>
+            <div class="footer-contact">
+                <h3>Contact Us</h3>
+                <p><i class="fa-solid fa-envelope"></i> contact@nexussuk.com</p>
+                <p><i class="fa-solid fa-location-dot"></i> United Kingdom</p>
+            </div>
+        </div>
+        <div class="copyright text-center">
+            <p>&copy; 2026 Nexus UK. All rights reserved.</p>
+        </div>
+    </footer>
 </body>
 </html>
