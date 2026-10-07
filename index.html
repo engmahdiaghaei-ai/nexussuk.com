@@ -3,12 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nexus UK | Elite Financial & Tech Solutions</title>
-    <!-- Tailwind CSS (CDN for quick deployment) -->
+    <title>Nexus UK | Financial & Data Engineering</title>
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
-    <!-- FontAwesome Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script>
         tailwind.config = {
@@ -17,7 +15,7 @@
                     colors: {
                         nexusDark: '#0a0a0a',
                         nexusGold: '#d4af37',
-                        nexusGoldHover: '#b5952f',
+                        nexusCyan: '#00e5ff',
                     },
                     fontFamily: {
                         sans: ['Inter', 'sans-serif'],
@@ -28,117 +26,162 @@
         }
     </script>
 </head>
-<body class="bg-nexusDark text-gray-300 font-sans antialiased">
+<body class="bg-nexusDark text-gray-300 font-sans antialiased overflow-x-hidden">
 
     <!-- Navbar -->
-    <nav class="fixed w-full z-50 bg-nexusDark/90 backdrop-blur-md border-b border-gray-800">
+    <nav class="fixed w-full z-50 bg-nexusDark/95 backdrop-blur-md border-b border-gray-800">
         <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
             <div class="text-2xl font-bold tracking-tighter text-white">NEXUS<span class="text-nexusGold">UK</span></div>
             <div class="space-x-8 hidden md:block text-sm font-semibold tracking-wide">
                 <a href="#finance" class="hover:text-nexusGold transition">FINANCE DIVISION</a>
-                <a href="#tech" class="hover:text-cyan-400 transition">TECH & DATA</a>
+                <a href="#tech" class="hover:text-nexusCyan transition">TECH & DATA</a>
             </div>
-            <a href="mailto:info@nexussuk.com" class="border border-nexusGold text-nexusGold px-4 py-2 rounded hover:bg-nexusGold hover:text-black transition">Contact Us</a>
+            <a href="#contact" class="border border-white/20 text-white px-5 py-2 rounded hover:bg-white hover:text-black transition">Contact Us</a>
         </div>
     </nav>
 
-    <!-- Finance Hero Section -->
-    <section id="finance" class="pt-32 pb-20 px-6 relative overflow-hidden">
-        <!-- Background Glow -->
-        <div class="absolute top-0 left-1/4 w-96 h-96 bg-nexusGold/10 rounded-full blur-3xl -z-10"></div>
+    <!-- Sequence 1: Main Hero -->
+    <section class="min-h-screen flex items-center justify-center relative overflow-hidden px-6 pt-20">
+        <!-- Background Gradients -->
+        <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-nexusGold/10 rounded-full blur-[100px] -z-10"></div>
+        <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-nexusCyan/10 rounded-full blur-[100px] -z-10"></div>
         
+        <div class="max-w-5xl mx-auto text-center z-10">
+            <h1 class="text-6xl md:text-8xl font-serif text-white leading-tight mb-6">
+                Engineering <br>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-nexusGold to-nexusCyan">Financial Clarity.</span>
+            </h1>
+            <p class="text-xl text-gray-400 mb-10 max-w-2xl mx-auto">
+                The ultimate fusion of British accounting precision and enterprise-grade data architecture. We build the systems that drive your business forward.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-6">
+                <a href="#finance" class="bg-nexusGold text-black font-bold px-8 py-4 rounded hover:bg-white transition flex items-center justify-center gap-3">
+                    Explore Finance <i class="fa-solid fa-arrow-down"></i>
+                </a>
+                <a href="#tech" class="border border-nexusCyan text-nexusCyan font-bold px-8 py-4 rounded hover:bg-nexusCyan hover:text-black transition flex items-center justify-center gap-3">
+                    Explore Tech & Data <i class="fa-solid fa-arrow-down"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sequence 2: Finance Division (Niloofar) -->
+    <section id="finance" class="py-24 px-6 border-t border-gray-900 bg-black/50">
         <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
-            
-            <!-- Director Bio -->
             <div class="space-y-6">
                 <div class="inline-block text-xs font-bold tracking-widest text-nexusGold uppercase border border-nexusGold px-3 py-1 rounded">
                     Finance Division
                 </div>
-                <h1 class="text-5xl font-serif text-white leading-tight">
+                <h2 class="text-5xl font-serif text-white leading-tight">
                     Precision Accounting.<br>
                     <span class="text-nexusGold">Strategic Growth.</span>
-                </h1>
+                </h2>
                 <p class="text-lg leading-relaxed text-gray-400">
                     Led by <strong>Niloofar Zare</strong>, ACCA Part-Qualified Accountant. With over 5 years of rigorous practice in the UK financial sector, we ensure your corporate compliance, seamless payroll management, and strategic tax planning are executed flawlessly.
                 </p>
-                
-                <!-- Contact Badges -->
-                <div class="flex flex-col sm:flex-row gap-4 pt-4">
-                    <a href="tel:+447487270007" class="flex items-center gap-3 bg-white/5 border border-gray-700 px-5 py-3 rounded hover:border-nexusGold transition">
-                        <i class="fa-solid fa-phone text-nexusGold"></i>
-                        <span class="text-sm">+44 7487 270007</span>
-                    </a>
-                    <a href="https://linkedin.com/in/niloofar-zare-096962233" target="_blank" class="flex items-center gap-3 bg-white/5 border border-gray-700 px-5 py-3 rounded hover:border-nexusGold transition">
-                        <i class="fa-brands fa-linkedin text-nexusGold"></i>
-                        <span class="text-sm">Connect on LinkedIn</span>
-                    </a>
+                <div class="flex flex-wrap gap-3 py-4">
+                    <span class="bg-gray-900 border border-gray-800 px-4 py-2 rounded-full text-sm text-gray-300">Bookkeeping & VAT</span>
+                    <span class="bg-gray-900 border border-gray-800 px-4 py-2 rounded-full text-sm text-gray-300">Payroll (RTI/PAYE)</span>
+                    <span class="bg-gray-900 border border-gray-800 px-4 py-2 rounded-full text-sm text-gray-300">HMRC Compliance</span>
                 </div>
             </div>
-
-            <!-- Profile & Trust Indicators -->
             <div class="relative">
                 <div class="aspect-[4/5] bg-gray-800 rounded-xl overflow-hidden border border-gray-700 shadow-2xl relative">
-                    <div class="absolute inset-0 flex items-center justify-center text-gray-600">
-                        <!-- Active Image Tag -->
-                        <img src="niloofar.jpg" alt="Niloofar Zare" class="w-full h-full object-cover">
-                    </div>
+                    <img src="niloofar.jpg" alt="Niloofar Zare" class="w-full h-full object-cover">
                 </div>
-                
-                <!-- Floating Badge -->
                 <div class="absolute -bottom-6 -left-6 bg-nexusDark border border-nexusGold p-4 rounded-lg shadow-xl flex items-center gap-4">
                     <div class="bg-nexusGold/20 p-3 rounded-full text-nexusGold">
                         <i class="fa-solid fa-file-invoice-dollar text-xl"></i>
                     </div>
                     <div>
-                        <p class="text-white font-bold">HMRC Compliant</p>
-                        <p class="text-xs text-gray-400">RTI, PAYE, CIS & VAT</p>
+                        <p class="text-white font-bold">ACCA Qualified</p>
+                        <p class="text-xs text-gray-400">BSc (Hons) Finance</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Services Grid -->
-    <section class="py-20 bg-black px-6 border-y border-gray-900">
-        <div class="max-w-7xl mx-auto">
-            <h2 class="text-3xl font-serif text-white mb-12 text-center">Core <span class="text-nexusGold">Financial Services</span></h2>
+    <!-- Sequence 3: Tech & Data Division (Mahdi) -->
+    <section id="tech" class="py-24 px-6 border-t border-gray-900 relative">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
             
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Service 1 -->
-                <div class="p-8 bg-gray-900/50 border border-gray-800 rounded-xl hover:border-nexusGold transition group">
-                    <i class="fa-solid fa-book text-3xl text-gray-500 group-hover:text-nexusGold mb-6 transition"></i>
-                    <h3 class="text-xl font-bold text-white mb-3">Bookkeeping & VAT</h3>
-                    <p class="text-sm text-gray-400">Meticulous general ledger management, financial statement preparation, and accurate VAT return filings.</p>
+            <!-- Tech Profile Image & Asset -->
+            <div class="relative order-2 md:order-1">
+                <div class="aspect-[4/5] bg-gray-900 rounded-xl overflow-hidden border border-gray-800 shadow-[0_0_50px_rgba(0,229,255,0.1)] relative">
+                    <!-- Placeholder for Mahdi's Photo -->
+                    <div class="absolute inset-0 flex items-center justify-center text-gray-700">
+                         <i class="fa-solid fa-code text-6xl mb-4 block text-center"></i>
+                         <!-- <img src="mahdi.jpg" alt="Mahdi Aghaei" class="w-full h-full object-cover"> -->
+                    </div>
                 </div>
-                
-                <!-- Service 2 -->
-                <div class="p-8 bg-gray-900/50 border border-gray-800 rounded-xl hover:border-nexusGold transition group">
-                    <i class="fa-solid fa-users-gear text-3xl text-gray-500 group-hover:text-nexusGold mb-6 transition"></i>
-                    <h3 class="text-xl font-bold text-white mb-3">Payroll Management</h3>
-                    <p class="text-sm text-gray-400">End-to-end payroll administration including RTI, PAYE, CIS, and workplace pensions (TPR).</p>
+                <!-- Custom Product Badge -->
+                <div class="absolute -bottom-6 -right-6 bg-nexusDark border border-nexusCyan p-4 rounded-lg shadow-xl flex items-center gap-4">
+                    <div class="bg-nexusCyan/20 p-3 rounded-full text-nexusCyan">
+                        <i class="fa-solid fa-chart-pie text-xl"></i>
+                    </div>
+                    <div>
+                        <p class="text-white font-bold">Nexusinsightcards</p>
+                        <p class="text-xs text-gray-400">Custom Power BI Visuals</p>
+                    </div>
                 </div>
-                
-                <!-- Service 3 -->
-                <div class="p-8 bg-gray-900/50 border border-gray-800 rounded-xl hover:border-nexusGold transition group">
-                    <i class="fa-solid fa-chart-line text-3xl text-gray-500 group-hover:text-nexusGold mb-6 transition"></i>
-                    <h3 class="text-xl font-bold text-white mb-3">Small Business Tax</h3>
-                    <p class="text-sm text-gray-400">Corporate and personal tax planning, year-end accounts, and direct liaison with HMRC.</p>
+            </div>
+
+            <!-- Tech Bio -->
+            <div class="space-y-6 order-1 md:order-2">
+                <div class="inline-block text-xs font-bold tracking-widest text-nexusCyan uppercase border border-nexusCyan px-3 py-1 rounded shadow-[0_0_10px_rgba(0,229,255,0.2)]">
+                    Tech & Data Division
+                </div>
+                <h2 class="text-5xl font-serif text-white leading-tight">
+                    Data Architecture.<br>
+                    <span class="text-nexusCyan">Intelligent Systems.</span>
+                </h2>
+                <p class="text-lg leading-relaxed text-gray-400">
+                    Led by <strong>Mahdi Aghaei</strong>, CTO & CPO. With over 13 years of expertise in Business Intelligence and Software Product Management, we design scalable data pipelines, automated dashboards, and robust cloud accounting infrastructures.
+                </p>
+                <div class="grid grid-cols-2 gap-4 pt-4">
+                    <div class="border-l-2 border-nexusCyan pl-4">
+                        <h4 class="text-white font-bold mb-1">BI Ecosystem</h4>
+                        <p class="text-sm text-gray-500">Power BI, DAX, Fabric</p>
+                    </div>
+                    <div class="border-l-2 border-nexusCyan pl-4">
+                        <h4 class="text-white font-bold mb-1">Data Engineering</h4>
+                        <p class="text-sm text-gray-500">SSIS, SSAS, SQL Server</p>
+                    </div>
+                    <div class="border-l-2 border-nexusCyan pl-4">
+                        <h4 class="text-white font-bold mb-1">Development</h4>
+                        <p class="text-sm text-gray-500">Python, R, Delphi</p>
+                    </div>
+                    <div class="border-l-2 border-nexusCyan pl-4">
+                        <h4 class="text-white font-bold mb-1">Custom SaaS</h4>
+                        <p class="text-sm text-gray-500">Cloud Architecture & API</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Credentials Section -->
-    <section class="py-20 px-6">
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row gap-12 justify-between items-center border border-gray-800 bg-gray-900/30 p-10 rounded-2xl">
-            <div class="md:w-1/2">
-                <h3 class="text-2xl font-serif text-white mb-4">Backed by Academic & Professional Excellence</h3>
-                <p class="text-gray-400 mb-6">BSc (Hons) in Accounting and Financial Management from Canterbury Christ Church University, combined with years of senior accounting experience at firms like Atria Accountants Ltd.</p>
+    <!-- Sequence 4: Footer / Contact -->
+    <section id="contact" class="bg-black py-12 px-6 border-t border-gray-900 text-center">
+        <div class="max-w-4xl mx-auto space-y-8">
+            <h3 class="text-3xl font-serif text-white">Ready to elevate your business?</h3>
+            <div class="flex flex-col md:flex-row justify-center gap-6">
+                <a href="mailto:info@nexussuk.com" class="flex items-center justify-center gap-3 bg-gray-900 border border-gray-800 px-6 py-4 rounded hover:border-nexusGold transition">
+                    <i class="fa-regular fa-envelope text-nexusGold"></i>
+                    <span>info@nexussuk.com</span>
+                </a>
+                <a href="mailto:m.aghaei@nexussuk.com" class="flex items-center justify-center gap-3 bg-gray-900 border border-gray-800 px-6 py-4 rounded hover:border-nexusCyan transition">
+                    <i class="fa-solid fa-code text-nexusCyan"></i>
+                    <span>m.aghaei@nexussuk.com</span>
+                </a>
+                <a href="tel:+447487270007" class="flex items-center justify-center gap-3 bg-gray-900 border border-gray-800 px-6 py-4 rounded hover:border-white transition">
+                    <i class="fa-solid fa-phone"></i>
+                    <span>+44 7487 270007</span>
+                </a>
             </div>
-            <div class="flex gap-8 opacity-70 grayscale">
-                <div class="text-center font-bold text-xl tracking-wider">ACCA <span class="text-sm block font-normal">Part-Qualified</span></div>
-                <div class="text-center font-bold text-xl tracking-wider">BSc (Hons) <span class="text-sm block font-normal">Finance</span></div>
-            </div>
+            <p class="text-gray-600 text-sm pt-8">
+                &copy; 2026 Nexus UK Ltd. All rights reserved. Registered in England & Wales.
+            </p>
         </div>
     </section>
 
