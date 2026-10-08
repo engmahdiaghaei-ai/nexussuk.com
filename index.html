@@ -1,189 +1,63 @@
-<!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<!doctype html>
+<html lang="en" dir="ltr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nexus UK | Financial & Data Engineering</title>
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        nexusDark: '#0a0a0a',
-                        nexusGold: '#d4af37',
-                        nexusCyan: '#00e5ff',
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        serif: ['Playfair Display', 'serif'],
-                    }
-                }
-            }
-        }
-    </script>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Nexus is a UK-based software, business intelligence and accounting consultancy founded by Mahdi Aghaei and Niloofar Zare.">
+  <title>Nexus | Software, Data & Accounting</title>
+  <link rel="stylesheet" href="assets/styles.css"><link rel="stylesheet" href="assets/extra.css"><script src="assets/site.js" defer></script>
 </head>
-<body class="bg-nexusDark text-gray-300 font-sans antialiased overflow-x-hidden">
-
-    <!-- Navbar -->
-    <nav class="fixed w-full z-50 bg-nexusDark/95 backdrop-blur-md border-b border-gray-800">
-        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-            <div class="text-2xl font-bold tracking-tighter text-white">NEXUS<span class="text-nexusGold">UK</span></div>
-            <div class="space-x-8 hidden md:block text-sm font-semibold tracking-wide">
-                <a href="#finance" class="hover:text-nexusGold transition">FINANCE DIVISION</a>
-                <a href="#tech" class="hover:text-nexusCyan transition">TECH & DATA</a>
-            </div>
-            <a href="#contact" class="border border-white/20 text-white px-5 py-2 rounded hover:bg-white hover:text-black transition">Contact Us</a>
-        </div>
-    </nav>
-
-    <!-- Sequence 1: Main Hero -->
-    <section class="min-h-screen flex items-center justify-center relative overflow-hidden px-6 pt-20">
-        <!-- Background Gradients -->
-        <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-nexusGold/10 rounded-full blur-[100px] -z-10"></div>
-        <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-nexusCyan/10 rounded-full blur-[100px] -z-10"></div>
-        
-        <div class="max-w-5xl mx-auto text-center z-10">
-            <h1 class="text-6xl md:text-8xl font-serif text-white leading-tight mb-6">
-                Engineering <br>
-                <span class="text-transparent bg-clip-text bg-gradient-to-r from-nexusGold to-nexusCyan">Financial Clarity.</span>
-            </h1>
-            <p class="text-xl text-gray-400 mb-10 max-w-2xl mx-auto">
-                The ultimate fusion of British accounting precision and enterprise-grade data architecture. We build the systems that drive your business forward.
-            </p>
-            <div class="flex flex-col sm:flex-row justify-center gap-6">
-                <a href="#finance" class="bg-nexusGold text-black font-bold px-8 py-4 rounded hover:bg-white transition flex items-center justify-center gap-3">
-                    Explore Finance <i class="fa-solid fa-arrow-down"></i>
-                </a>
-                <a href="#tech" class="border border-nexusCyan text-nexusCyan font-bold px-8 py-4 rounded hover:bg-nexusCyan hover:text-black transition flex items-center justify-center gap-3">
-                    Explore Tech & Data <i class="fa-solid fa-arrow-down"></i>
-                </a>
-            </div>
-        </div>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="Nexus home"><span class="brand-mark"><i></i><i></i><i></i></span><span><strong>NEXUS</strong><small>Software · Data · Finance</small></span></a>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav"><span></span><span></span></button>
+    <nav id="main-nav" class="main-nav"><a href="#services">Services</a><a href="#products">Products</a><a href="#about">Leadership</a><a href="#contact">Contact</a><a class="button button-small" href="#contact">Start a project</a></nav>
+  </header>
+  <main id="main">
+    <section class="hero section-grid">
+      <div class="hero-copy reveal">
+        <p class="eyebrow">UK expertise. Practical outcomes.</p>
+        <h1>Technology that works.<br><em>Numbers that make sense.</em></h1>
+        <p class="hero-lead">Nexus brings senior software, data and accounting expertise together to help businesses build better systems, understand performance and make confident decisions.</p>
+        <div class="hero-actions"><a class="button" href="#contact">Discuss your project <span>↗</span></a><a class="text-link" href="#products">Explore our products <span>↓</span></a></div>
+        <div class="trust-row"><span><strong>13+</strong><small>Years in data and software</small></span><span><strong>5+</strong><small>Years in accounting practice</small></span><span><strong>UK</strong><small>Based and registered</small></span></div>
+      </div>
+      <div class="hero-visual reveal"><div class="orb orb-one"></div><div class="orb orb-two"></div><div class="visual-card card-code"><span class="card-label">LIVE DATA</span><pre><code>growth = data
+  .transform()
+  .visualise()</code></pre><span class="status"><i></i> All systems operational</span></div><div class="visual-card card-chart"><span class="card-label">PERFORMANCE</span><div class="chart"><i></i><i></i><i></i><i></i><i></i></div><strong>+28.4%</strong><small>vs. previous period</small></div><div class="visual-card card-balance"><span>RECONCILED</span><strong>£ 48,290</strong><small>Accuracy you can build on</small></div></div>
+      <div class="hero-marquee"><div><span>POWER BI</span><i>✦</i><span>MICROSOFT FABRIC</span><i>✦</i><span>ACCOUNTING</span><i>✦</i><span>CUSTOM SOFTWARE</span><i>✦</i><span>SQL SERVER</span><i>✦</i><span>CLOUD SOLUTIONS</span><i>✦</i><span>POWER BI</span><i>✦</i><span>MICROSOFT FABRIC</span></div></div>
     </section>
-
-    <!-- Sequence 2: Finance Division (Niloofar) -->
-    <section id="finance" class="py-24 px-6 border-t border-gray-900 bg-black/50">
-        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
-            <div class="space-y-6">
-                <div class="inline-block text-xs font-bold tracking-widest text-nexusGold uppercase border border-nexusGold px-3 py-1 rounded">
-                    Finance Division
-                </div>
-                <h2 class="text-5xl font-serif text-white leading-tight">
-                    Precision Accounting.<br>
-                    <span class="text-nexusGold">Strategic Growth.</span>
-                </h2>
-                <p class="text-lg leading-relaxed text-gray-400">
-                    Led by <strong>Niloofar Zare</strong>, ACCA Part-Qualified Accountant. With over 5 years of rigorous practice in the UK financial sector, we ensure your corporate compliance, seamless payroll management, and strategic tax planning are executed flawlessly.
-                </p>
-                <div class="flex flex-wrap gap-3 py-4">
-                    <span class="bg-gray-900 border border-gray-800 px-4 py-2 rounded-full text-sm text-gray-300">Bookkeeping & VAT</span>
-                    <span class="bg-gray-900 border border-gray-800 px-4 py-2 rounded-full text-sm text-gray-300">Payroll (RTI/PAYE)</span>
-                    <span class="bg-gray-900 border border-gray-800 px-4 py-2 rounded-full text-sm text-gray-300">HMRC Compliance</span>
-                </div>
-            </div>
-            <div class="relative">
-                <div class="aspect-[4/5] bg-gray-800 rounded-xl overflow-hidden border border-gray-700 shadow-2xl relative">
-                    <img src="niloofar.jpg" alt="Niloofar Zare" class="w-full h-full object-cover">
-                </div>
-                <div class="absolute -bottom-6 -left-6 bg-nexusDark border border-nexusGold p-4 rounded-lg shadow-xl flex items-center gap-4">
-                    <div class="bg-nexusGold/20 p-3 rounded-full text-nexusGold">
-                        <i class="fa-solid fa-file-invoice-dollar text-xl"></i>
-                    </div>
-                    <div>
-                        <p class="text-white font-bold">ACCA Qualified</p>
-                        <p class="text-xs text-gray-400">BSc (Hons) Finance</p>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <section id="services" class="section services-section">
+      <div class="section-heading reveal"><div><p class="eyebrow">What we do</p><h2>Specialist services.<br>Connected thinking.</h2></div><p>We combine technology and finance expertise so systems, reporting and commercial decisions work together rather than in isolation.</p></div>
+      <div class="service-grid">
+        <article class="service-card service-featured reveal"><div class="service-number">01</div><div class="service-icon">⌁</div><h3>Data & Business Intelligence</h3><p>Scalable data platforms and decision-ready analytics designed around real financial and operational processes.</p><ul><li>Power BI dashboards and custom visuals</li><li>Microsoft Fabric and data architecture</li><li>SSIS, SSAS and SQL Server</li><li>Financial analytics and forecasting</li></ul><a href="mailto:M.Aghaei@Nexussuk.com">Talk to Mahdi <span>↗</span></a></article>
+        <article class="service-card reveal"><div class="service-number">02</div><div class="service-icon">&lt;/&gt;</div><h3>Custom Software</h3><p>Purpose-built digital products for web, cloud and Windows, delivered from architecture through to deployment.</p><ul><li>Websites and web applications</li><li>Cloud-based business systems</li><li>Windows and desktop applications</li><li>Python, automation and databases</li></ul><a href="mailto:M.Aghaei@Nexussuk.com">Talk to Mahdi <span>↗</span></a></article>
+        <article class="service-card reveal"><div class="service-number">03</div><div class="service-icon">£</div><h3>Accounting & Payroll</h3><p>Accurate, responsive accounting support for UK businesses, delivered by an ACCA Part-Qualified professional.</p><ul><li>Payroll, RTI, PAYE, CIS and pensions</li><li>Bookkeeping and VAT returns</li><li>Management and statutory accounts</li><li>HMRC queries and reconciliations</li></ul><a href="mailto:N.Zare@Nexussuk.com">Talk to Niloofar <span>↗</span></a></article>
+      </div>
     </section>
-
-    <!-- Sequence 3: Tech & Data Division (Mahdi) -->
-    <section id="tech" class="py-24 px-6 border-t border-gray-900 relative">
-        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
-            
-            <!-- Tech Profile Image & Asset -->
-            <div class="relative order-2 md:order-1">
-                <div class="aspect-[4/5] bg-gray-900 rounded-xl overflow-hidden border border-gray-800 shadow-[0_0_50px_rgba(0,229,255,0.1)] relative">
-                    <!-- Placeholder for Mahdi's Photo -->
-                    <div class="absolute inset-0 flex items-center justify-center text-gray-700">
-                         <i class="fa-solid fa-code text-6xl mb-4 block text-center"></i>
-                         <!-- <img src="mahdi.jpg" alt="Mahdi Aghaei" class="w-full h-full object-cover"> -->
-                    </div>
-                </div>
-                <!-- Custom Product Badge -->
-                <div class="absolute -bottom-6 -right-6 bg-nexusDark border border-nexusCyan p-4 rounded-lg shadow-xl flex items-center gap-4">
-                    <div class="bg-nexusCyan/20 p-3 rounded-full text-nexusCyan">
-                        <i class="fa-solid fa-chart-pie text-xl"></i>
-                    </div>
-                    <div>
-                        <p class="text-white font-bold">Nexusinsightcards</p>
-                        <p class="text-xs text-gray-400">Custom Power BI Visuals</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Tech Bio -->
-            <div class="space-y-6 order-1 md:order-2">
-                <div class="inline-block text-xs font-bold tracking-widest text-nexusCyan uppercase border border-nexusCyan px-3 py-1 rounded shadow-[0_0_10px_rgba(0,229,255,0.2)]">
-                    Tech & Data Division
-                </div>
-                <h2 class="text-5xl font-serif text-white leading-tight">
-                    Data Architecture.<br>
-                    <span class="text-nexusCyan">Intelligent Systems.</span>
-                </h2>
-                <p class="text-lg leading-relaxed text-gray-400">
-                    Led by <strong>Mahdi Aghaei</strong>, CTO & CPO. With over 13 years of expertise in Business Intelligence and Software Product Management, we design scalable data pipelines, automated dashboards, and robust cloud accounting infrastructures.
-                </p>
-                <div class="grid grid-cols-2 gap-4 pt-4">
-                    <div class="border-l-2 border-nexusCyan pl-4">
-                        <h4 class="text-white font-bold mb-1">BI Ecosystem</h4>
-                        <p class="text-sm text-gray-500">Power BI, DAX, Fabric</p>
-                    </div>
-                    <div class="border-l-2 border-nexusCyan pl-4">
-                        <h4 class="text-white font-bold mb-1">Data Engineering</h4>
-                        <p class="text-sm text-gray-500">SSIS, SSAS, SQL Server</p>
-                    </div>
-                    <div class="border-l-2 border-nexusCyan pl-4">
-                        <h4 class="text-white font-bold mb-1">Development</h4>
-                        <p class="text-sm text-gray-500">Python, R, Delphi</p>
-                    </div>
-                    <div class="border-l-2 border-nexusCyan pl-4">
-                        <h4 class="text-white font-bold mb-1">Custom SaaS</h4>
-                        <p class="text-sm text-gray-500">Cloud Architecture & API</p>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <section id="products" class="section products-section">
+      <div class="section-heading light reveal"><div><p class="eyebrow">Nexus products</p><h2>Built for real<br>business decisions.</h2></div><p>Focused software products created from first-hand experience of data, reporting and operational challenges.</p></div>
+      <div class="product-showcase reveal">
+        <div class="product-copy"><span class="product-badge">AVAILABLE NOW · V1.0.0</span><p class="product-type">MICROSOFT POWER BI CUSTOM VISUAL</p><h3>Nexus InsightCards</h3><p>An enterprise-grade smart KPI grid that transforms standard reports into actionable executive dashboards. Present high-density insights, trends, variance and contextual alerts in one responsive visual.</p><ul class="product-features"><li>Five built-in sparkline types</li><li>Dynamic DAX formatting and units</li><li>Smart alert footers and variance indicators</li><li>Responsive grid and high-contrast accessibility</li></ul><div class="product-actions"><a class="button button-light" href="https://nexusinsightcards.com/" target="_blank" rel="noopener">View product <span>↗</span></a><a class="text-link light-link" href="https://github.com/NexusInsightStudio/Nexusinsightcards" target="_blank" rel="noopener">View on GitHub ↗</a></div></div>
+        <div class="product-window product-demo"><div class="window-bar"><i></i><i></i><i></i><span>Nexus InsightCards · Power BI</span></div><img src="assets/images/nexus-insightcards-demo.gif" alt="Nexus InsightCards Power BI custom visual demonstration"></div>
+      </div>
+      <div class="product-list"><article class="product-row reveal"><span>02</span><div><small>IN DEVELOPMENT</small><h3>Smart Planner</h3></div><p>A focused planning tool for projects, priorities and day-to-day execution.</p><a href="mailto:Info@Nexussuk.com" aria-label="Ask about Smart Planner">↗</a></article><article class="product-row reveal"><span>03</span><div><small>NEXUS LABS</small><h3>Practical Micro-Tools</h3></div><p>A growing collection of focused software for everyday business problems.</p><a href="mailto:Info@Nexussuk.com" aria-label="Ask about Nexus products">↗</a></article></div>
     </section>
-
-    <!-- Sequence 4: Footer / Contact -->
-    <section id="contact" class="bg-black py-12 px-6 border-t border-gray-900 text-center">
-        <div class="max-w-4xl mx-auto space-y-8">
-            <h3 class="text-3xl font-serif text-white">Ready to elevate your business?</h3>
-            <div class="flex flex-col md:flex-row justify-center gap-6">
-                <a href="mailto:info@nexussuk.com" class="flex items-center justify-center gap-3 bg-gray-900 border border-gray-800 px-6 py-4 rounded hover:border-nexusGold transition">
-                    <i class="fa-regular fa-envelope text-nexusGold"></i>
-                    <span>info@nexussuk.com</span>
-                </a>
-                <a href="mailto:m.aghaei@nexussuk.com" class="flex items-center justify-center gap-3 bg-gray-900 border border-gray-800 px-6 py-4 rounded hover:border-nexusCyan transition">
-                    <i class="fa-solid fa-code text-nexusCyan"></i>
-                    <span>m.aghaei@nexussuk.com</span>
-                </a>
-                <a href="tel:+447487270007" class="flex items-center justify-center gap-3 bg-gray-900 border border-gray-800 px-6 py-4 rounded hover:border-white transition">
-                    <i class="fa-solid fa-phone"></i>
-                    <span>+44 7487 270007</span>
-                </a>
-            </div>
-            <p class="text-gray-600 text-sm pt-8">
-                &copy; 2026 Nexus UK Ltd. All rights reserved. Registered in England & Wales.
-            </p>
-        </div>
+    <section id="about" class="section about-section">
+      <div class="section-heading reveal"><div><p class="eyebrow">Nexus leadership</p><h2>Senior expertise.<br>Personally delivered.</h2></div><p>Clients work directly with the specialists responsible for strategy, delivery and results.</p></div>
+      <div class="founders-grid">
+        <article class="founder-card reveal"><div class="portrait portrait-tech"><img src="assets/images/mahdi-aghaei.jpg" alt="Mahdi Aghaei, Co-Founder and Senior BI Specialist"><span class="experience-pill">13+ YEARS</span></div><div class="founder-content"><p class="founder-role">CO-FOUNDER · DATA & SOFTWARE</p><h3>Mahdi Aghaei</h3><p>Senior BI Specialist connecting complex financial data with strategic decision-making through scalable data platforms, analytics and software.</p><a href="data-software-expert.html">Meet Mahdi <span>↗</span></a></div></article>
+        <article class="founder-card reveal"><div class="portrait portrait-finance"><img src="assets/images/niloofar-zare.jpg" alt="Niloofar Zare, Co-Founder and ACCA Part-Qualified Accountant"><span class="experience-pill">ACCA PQ</span></div><div class="founder-content"><p class="founder-role">CO-FOUNDER · ACCOUNTING & FINANCE</p><h3>Niloofar Zare</h3><p>ACCA Part-Qualified Accountant with over five years of practice experience across payroll, VAT, bookkeeping, management accounts and statutory reporting.</p><a href="niloufar.html">Meet Niloofar <span>↗</span></a></div></article>
+      </div>
     </section>
-
-</body>
-</html>
+    <section class="process-section section">
+      <div class="section-heading reveal"><div><p class="eyebrow">How we work</p><h2>Clear from day one.</h2></div><p>A straightforward process designed to reduce risk, protect quality and keep everyone aligned.</p></div>
+      <ol class="process-list"><li class="reveal"><span>01</span><div><h3>Understand</h3><p>We listen, ask the right questions and define the real business goal.</p></div></li><li class="reveal"><span>02</span><div><h3>Shape</h3><p>We propose a practical scope, timeline, delivery plan and transparent cost.</p></div></li><li class="reveal"><span>03</span><div><h3>Deliver</h3><p>We build carefully, communicate clearly and test thoroughly.</p></div></li><li class="reveal"><span>04</span><div><h3>Support</h3><p>We remain available after delivery to help you improve and grow.</p></div></li></ol>
+    </section>
+    <section id="contact" class="contact-section">
+      <div class="contact-copy reveal"><p class="eyebrow">Let’s make something useful</p><h2>Have a challenge<br>worth solving?</h2><p>Tell us what you are trying to achieve. We will respond with honest, practical next steps and connect you directly with the right specialist.</p><a href="mailto:Info@Nexussuk.com" class="email-link">Info@Nexussuk.com <span>↗</span></a><div class="direct-contacts"><a href="mailto:M.Aghaei@Nexussuk.com"><strong>Mahdi Aghaei</strong><span>Data, BI & Software</span><small>M.Aghaei@Nexussuk.com</small></a><a href="mailto:N.Zare@Nexussuk.com"><strong>Niloofar Zare</strong><span>Accounting & Payroll</span><small>N.Zare@Nexussuk.com</small></a></div></div>
+      <form class="contact-form reveal" action="mailto:Info@Nexussuk.com" method="post" enctype="text/plain"><div class="field-row"><label><span>Name</span><input type="text" name="name" required placeholder="Your name"></label><label><span>Email</span><input type="email" name="email" required placeholder="you@company.com"></label></div><label><span>I’m interested in</span><select name="interest"><option>Data & Business Intelligence</option><option>Custom Software</option><option>Accounting & Payroll</option><option>Nexus InsightCards</option><option>Another requirement</option></select></label><label><span>Tell us about your project</span><textarea name="message" rows="4" required placeholder="What would you like to achieve?"></textarea></label><button class="button button-dark" type="submit">Send enquiry <span>↗</span></button></form>
+    </section>
+  </main>
+  <footer class="site-footer"><div class="footer-brand"><a class="brand brand-light" href="index.html"><span class="brand-mark"><i></i><i></i><i></i></span><span><strong>NEXUS</strong><small>Software · Data · Finance</small></span></a><p>UK expertise. Working without borders.</p></div><div><h4>Explore</h4><a href="#services">Services</a><a href="#products">Products</a><a href="#about">Leadership</a></div><div><h4>Contact</h4><a href="mailto:Info@Nexussuk.com">Info@Nexussuk.com</a><a href="https://linkedin.com/in/mahdi-aghaie-bi-specialist" target="_blank" rel="noopener">Mahdi on LinkedIn ↗</a><a href="https://linkedin.com/in/niloofar-zare-096962233" target="_blank" rel="noopener">Niloofar on LinkedIn ↗</a></div><div class="footer-legal"><p>© <span id="year"></span> Nexussuk. Trading as Nexus.</p><p>Registered in England and Wales</p></div></footer>
+</body></html>
