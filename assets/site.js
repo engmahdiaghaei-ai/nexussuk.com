@@ -44,6 +44,7 @@ document.querySelectorAll('.copy-email').forEach((button) => {
     try {
       await navigator.clipboard.writeText(button.dataset.email);
       if (label) label.textContent = 'Copied';
+      window.NexusAnalytics?.track('email_copy', { email: button.dataset.email });
     } catch {
       if (label) label.textContent = button.dataset.email;
     }
@@ -76,6 +77,7 @@ contactForm?.addEventListener('submit', async (event) => {
     contactForm.reset();
     formStatus.className = 'form-status success';
     formStatus.textContent = 'Thank you. Your enquiry has been sent successfully. We will be in touch shortly.';
+    window.NexusAnalytics?.track('generate_lead', { interest: interestField?.value || 'General enquiry' });
   } catch {
     formStatus.className = 'form-status error';
     formStatus.textContent = 'We could not send your enquiry. Please try again or copy Info@Nexussuk.com and email us directly.';
@@ -84,3 +86,23 @@ contactForm?.addEventListener('submit', async (event) => {
     if (submitLabel) submitLabel.textContent = originalLabel;
   }
 });
+
+document.querySelectorAll('a').forEach((link) => {
+  link.addEventListener('click', () => {
+    const href = link.href || '';
+    if (href.includes('github.com')) window.NexusAnalytics?.track('github_click');
+    if (href.includes('linkedin.com')) window.NexusAnalytics?.track('linkedin_click');
+    if (href.includes('wa.me')) window.NexusAnalytics?.track('whatsapp_click');
+    if (link.dataset.track) window.NexusAnalytics?.track(link.dataset.track);
+  });
+});
+
+const bookingLink = document.querySelector('[data-booking-link]');
+if (bookingLink && window.NEXUS_CONFIG?.bookingUrl) {
+  bookingLink.href = window.NEXUS_CONFIG.bookingUrl;
+  bookingLink.target = '_blank'; bookingLink.rel = 'noopener';
+}
+
+document.querySelectorAll('[data-cookie-settings]').forEach((button) => button.addEventListener('click', () => {
+  localStorage.removeItem('nexus-analytics-consent'); window.NexusAnalytics?.showBanner();
+}));
