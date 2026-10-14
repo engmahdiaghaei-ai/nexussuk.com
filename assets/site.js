@@ -59,6 +59,7 @@ contactForm?.addEventListener('submit', async (event) => {
   const submitButton = contactForm.querySelector('button[type="submit"]');
   const submitLabel = contactForm.querySelector('.submit-label');
   const originalLabel = submitLabel?.textContent;
+  const selectedInterest = interestField?.value || 'General enquiry';
 
   submitButton.disabled = true;
   if (submitLabel) submitLabel.textContent = 'Sending…';
@@ -77,7 +78,7 @@ contactForm?.addEventListener('submit', async (event) => {
     contactForm.reset();
     formStatus.className = 'form-status success';
     formStatus.textContent = 'Thank you. Your enquiry has been sent successfully. We will be in touch shortly.';
-    window.NexusAnalytics?.track('generate_lead', { interest: interestField?.value || 'General enquiry' });
+    window.NexusAnalytics?.track('generate_lead', { interest: selectedInterest });
   } catch {
     formStatus.className = 'form-status error';
     formStatus.textContent = 'We could not send your enquiry. Please try again or copy Info@Nexussuk.com and email us directly.';
@@ -93,8 +94,66 @@ document.querySelectorAll('a').forEach((link) => {
     if (href.includes('github.com')) window.NexusAnalytics?.track('github_click');
     if (href.includes('linkedin.com')) window.NexusAnalytics?.track('linkedin_click');
     if (href.includes('wa.me')) window.NexusAnalytics?.track('whatsapp_click');
+    if (href.startsWith('mailto:')) window.NexusAnalytics?.track('email_click', { email: href.slice(7).split('?')[0] });
     if (link.dataset.track) window.NexusAnalytics?.track(link.dataset.track);
   });
+});
+
+const aiForm = document.getElementById('nexus-ai-form');
+const aiInput = document.getElementById('nexus-ai-input');
+const aiChat = document.getElementById('nexus-ai-chat');
+const aiActions = document.getElementById('nexus-ai-actions');
+
+function addAiMessage(text, type) {
+  if (!aiChat) return;
+  const message = document.createElement('div');
+  message.className = `ai-message ai-message-${type}`;
+  message.textContent = text;
+  aiChat.appendChild(message);
+  aiChat.scrollTop = aiChat.scrollHeight;
+}
+
+function localAiRecommendation(input) {
+  const text = input.toLowerCase();
+  if (/(payroll|paye|cis|hmrc|vat|bookkeep|account|tax|ledger)/.test(text)) {
+    return { text: 'This sounds primarily like an accounting or payroll requirement. Niloofar can review your records, deadlines, VAT, payroll and reporting needs.', interest: 'Accounting & Payroll', contact: 'niloofar' };
+  }
+  if (/(power bi|dashboard|report|fabric|sql|ssis|ssas|data|warehouse|etl|analytics|forecast)/.test(text)) {
+    return { text: 'This sounds like a data and business intelligence requirement. Mahdi can help with Power BI, Microsoft Fabric, data engineering, reporting and financial analytics.', interest: 'Data & Business Intelligence', contact: 'mahdi' };
+  }
+  if (/(app|application|software|website|portal|cloud|automation|tool|system|integrat)/.test(text)) {
+    return { text: 'This sounds like a custom software or automation requirement. Nexus can shape the product, choose the right architecture and build the solution around your workflow.', interest: 'Custom Software', contact: 'mahdi' };
+  }
+  return { text: 'Your requirement may combine several Nexus capabilities. The best next step is a short discovery conversation so we can understand the process, data and desired outcome.', interest: 'Another requirement', contact: 'company' };
+}
+
+async function getAiRecommendation(input) {
+  const endpoint = window.NEXUS_CONFIG?.aiEndpoint;
+  if (!endpoint) return localAiRecommendation(input);
+  const response = await fetch(endpoint, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ message: input }) });
+  if (!response.ok) throw new Error('AI endpoint unavailable');
+  return response.json();
+}
+
+aiForm?.addEventListener('submit', async (event) => {
+  event.preventDefault();
+  const input = aiInput?.value.trim();
+  if (!input) return;
+  addAiMessage(input, 'user');
+  if (aiInput) aiInput.value = '';
+  const button = aiForm.querySelector('button');
+  if (button) button.disabled = true;
+  try {
+    const recommendation = await getAiRecommendation(input);
+    addAiMessage(recommendation.text || recommendation.reply, 'assistant');
+    if (interestField && recommendation.interest) interestField.value = recommendation.interest;
+    if (aiActions) aiActions.hidden = false;
+    window.NexusAnalytics?.track('ai_recommendation', { interest: recommendation.interest || 'General enquiry', contact: recommendation.contact || 'company' });
+  } catch {
+    addAiMessage('I could not reach the assistant service right now. Please use the direct email or WhatsApp options below and we will help you personally.', 'assistant');
+  } finally {
+    if (button) button.disabled = false;
+  }
 });
 
 const bookingLink = document.querySelector('[data-booking-link]');
