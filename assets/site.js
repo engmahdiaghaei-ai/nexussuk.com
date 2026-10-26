@@ -33,9 +33,20 @@ const interestField = document.getElementById('contact-interest');
 const formStatus = document.getElementById('form-status');
 
 if (interestField && window.location) {
-  const requestedInterest = new URLSearchParams(window.location.search).get('interest');
+  const enquiryParameters = new URLSearchParams(window.location.search);
+  const requestedInterest = enquiryParameters.get('interest');
   if ([...interestField.options].some((option) => option.value === requestedInterest)) {
     interestField.value = requestedInterest;
+  }
+  const requestedPlan = enquiryParameters.get('plan');
+  const requestedBilling = enquiryParameters.get('billing');
+  if (contactForm && ['capture', 'team', 'scale'].includes(requestedPlan)) {
+    const planField = contactForm.querySelector('[name="requested_plan"]');
+    const billingField = contactForm.querySelector('[name="billing_period"]');
+    if (planField) planField.value = requestedPlan;
+    if (billingField && ['monthly', 'annual'].includes(requestedBilling)) billingField.value = requestedBilling;
+    const messageField = contactForm.querySelector('[name="message"]');
+    if (messageField && !messageField.value) messageField.value = `I would like to discuss the Nexus Prepare ${requestedPlan} plan${requestedBilling ? ` (${requestedBilling} billing)` : ''}.`;
   }
 }
 
@@ -129,8 +140,8 @@ function addAiMessage(text, type) {
 
 function localAiRecommendation(input) {
   const text = input.toLowerCase();
-  if (/(nexus prepare|prepare product)/.test(text)) {
-    return { text: 'For Nexus Prepare, contact our product team for a demonstration, confirmed capabilities and release availability.', interest: 'Nexus Prepare', contact: 'mahdi' };
+  if (/(nexus prepare|prepare product|invoice|receipt|document capture|bank statement|ocr)/.test(text)) {
+    return { text: 'Nexus Prepare is our software for mobile document capture and cloud-based extraction and review. Explore the product page for the web application, a mobile prototype preview and launch plans. Nexus provides software, not outsourced accounting services.', interest: 'Nexus Prepare', contact: 'mahdi' };
   }
   if (/(insightcard|power bi visual|custom visual)/.test(text)) {
     return { text: 'Explore Nexus InsightCards, our Power BI custom visual. The product page includes showcase media and sample downloads.', interest: 'Nexus InsightCards', contact: 'mahdi' };
@@ -164,6 +175,8 @@ aiForm?.addEventListener('submit', async (event) => {
     const recommendation = await getAiRecommendation(input);
     addAiMessage(recommendation.text || recommendation.reply, 'assistant');
     if (interestField && recommendation.interest) interestField.value = recommendation.interest;
+    const continueLink = aiActions?.querySelector('[data-interest]');
+    if (continueLink && recommendation.interest) continueLink.dataset.interest = recommendation.interest;
     if (aiActions) aiActions.hidden = false;
     window.NexusAnalytics?.track('ai_recommendation', { interest: recommendation.interest || 'General enquiry', contact: recommendation.contact || 'company' });
   } catch {
