@@ -13,13 +13,16 @@ navigation?.querySelectorAll('a').forEach((link) => {
   });
 });
 
-const revealObserver = new IntersectionObserver((entries) => {
-  entries.forEach((entry) => {
-    if (entry.isIntersecting) entry.target.classList.add('visible');
-  });
-}, { threshold: 0.12 });
-
-document.querySelectorAll('.reveal').forEach((element) => revealObserver.observe(element));
+if ('IntersectionObserver' in window) {
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) entry.target.classList.add('visible');
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach((element) => revealObserver.observe(element));
+} else {
+  document.querySelectorAll('.reveal').forEach((element) => element.classList.add('visible'));
+}
 
 window.addEventListener('scroll', () => {
   document.querySelector('.site-header')?.classList.toggle('scrolled', window.scrollY > 20);
