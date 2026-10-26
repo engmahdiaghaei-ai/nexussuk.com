@@ -32,7 +32,21 @@ const contactForm = document.getElementById('contact-form');
 const interestField = document.getElementById('contact-interest');
 const formStatus = document.getElementById('form-status');
 
+if (interestField && window.location) {
+  const requestedInterest = new URLSearchParams(window.location.search).get('interest');
+  if ([...interestField.options].some((option) => option.value === requestedInterest)) {
+    interestField.value = requestedInterest;
+  }
+}
+
 document.querySelectorAll('[data-interest]').forEach((link) => {
+  if (!interestField && link.href) {
+    const destination = new URL(link.href, window.location.href);
+    if (destination.origin === window.location.origin && destination.pathname.endsWith('/index.html')) {
+      destination.searchParams.set('interest', link.dataset.interest);
+      link.href = destination.href;
+    }
+  }
   link.addEventListener('click', () => {
     if (interestField) interestField.value = link.dataset.interest;
   });
@@ -115,11 +129,14 @@ function addAiMessage(text, type) {
 
 function localAiRecommendation(input) {
   const text = input.toLowerCase();
-  if (/(payroll|paye|cis|hmrc|vat|bookkeep|account|tax|ledger)/.test(text)) {
-    return { text: 'This sounds primarily like an accounting or payroll requirement. Niloofar can review your records, deadlines, VAT, payroll and reporting needs.', interest: 'Accounting & Payroll', contact: 'niloofar' };
+  if (/(nexus prepare|prepare product)/.test(text)) {
+    return { text: 'For Nexus Prepare, contact our product team for a demonstration, confirmed capabilities and release availability.', interest: 'Nexus Prepare', contact: 'mahdi' };
+  }
+  if (/(insightcard|power bi visual|custom visual)/.test(text)) {
+    return { text: 'Explore Nexus InsightCards, our Power BI custom visual. The product page includes showcase media and sample downloads.', interest: 'Nexus InsightCards', contact: 'mahdi' };
   }
   if (/(power bi|dashboard|report|fabric|sql|ssis|ssas|data|warehouse|etl|analytics|forecast)/.test(text)) {
-    return { text: 'This sounds like a data and business intelligence requirement. Mahdi can help with Power BI, Microsoft Fabric, data engineering, reporting and financial analytics.', interest: 'Data & Business Intelligence', contact: 'mahdi' };
+    return { text: 'This sounds like a data and business intelligence requirement. Mahdi can help with Power BI, Microsoft Fabric, data engineering, modelling and enterprise or personal dashboards.', interest: 'Data & Business Intelligence', contact: 'mahdi' };
   }
   if (/(app|application|software|website|portal|cloud|automation|tool|system|integrat)/.test(text)) {
     return { text: 'This sounds like a custom software or automation requirement. Nexus can shape the product, choose the right architecture and build the solution around your workflow.', interest: 'Custom Software', contact: 'mahdi' };
