@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Wolf Accounting | Client Design Preview</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font:16px/1.55 system-ui,sans-serif;color:#18282f}h1,h2,h3,p{margin:0}h1,h2,h3{line-height:1.1}a{color:inherit}button{font:inherit;cursor:pointer}a:focus-visible,button:focus-visible{outline:3px solid #ad651e;outline-offset:4px}.wrap{width:min(1150px,calc(100% - 3rem));margin:auto}.review{background:#18282f;color:white;padding:.8rem 0}.row{display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap}.review small{display:block;color:#ccd5da}.choices{display:flex;gap:.45rem;flex-wrap:wrap}.choices button{border:1px solid #83959e;border-radius:.3rem;color:white;background:none;padding:.36rem .65rem;font-size:.85rem}.choices button[aria-pressed=true]{background:white;color:#18282f}.skip{position:absolute;left:1rem;top:-6rem;background:white;padding:.6rem;z-index:1}.skip:focus{top:.5rem}
+.site{--ink:#143146;--paper:#f9f8f3;--panel:#e5eeea;--accent:#126057;--line:#cbd8d5;--muted:#42555b;--head:Georgia,serif;color:var(--ink);background:var(--paper)}header{border-bottom:1px solid var(--line);padding:1rem 0}.brand{display:inline-flex;align-items:center;gap:.65rem;font-size:1.17rem;font-weight:790;text-decoration:none}.brand svg{width:38px;height:38px}nav{display:flex;gap:1.2rem;flex-wrap:wrap}nav a{font-size:.9rem;font-weight:680;text-decoration:none}nav a:hover{text-decoration:underline}.hero,.enquiries{background:var(--panel)}.hero{padding:clamp(3rem,8vw,7rem) 0}.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;align-items:center;gap:clamp(1.5rem,6vw,6rem)}.eyebrow{font-size:.75rem;font-weight:800;text-transform:uppercase;letter-spacing:.15em;margin-bottom:1rem}h1,h2{font-family:var(--head);letter-spacing:-.042em}h1{font-size:clamp(2.75rem,7vw,5.7rem);max-width:14ch}h2{font-size:clamp(2rem,4vw,3.5rem)}.intro{font-size:1.14rem;max-width:53ch;margin:1.25rem 0 1.6rem}.action{display:inline-block;padding:.75rem 1rem;background:var(--accent);color:white;border-radius:.24rem;text-decoration:none;font-weight:730}.action:hover{text-decoration:underline}.art{display:block;width:100%;aspect-ratio:5/4;color:var(--accent);background:var(--paper);border:1px solid var(--line)}.art g{display:none}.site[data-design=corporate] .corporate-art,.site[data-design=audit] .audit-art,.site[data-design=industry] .industry-art,.site[data-design=boutique] .boutique-art{display:block}
+.story{display:flex;flex-direction:column}.section{padding:clamp(2.7rem,6vw,5rem) 0}.cards,.sectors ul,.enquiries .wrap{display:grid;gap:1rem}.cards,.sectors ul{grid-template-columns:repeat(3,minmax(0,1fr));margin-top:1.6rem}.card,.sectors li{border:1px solid var(--line);padding:1.35rem}.card span{display:block;color:var(--accent);font-size:.76rem;font-weight:800;margin-bottom:1rem}.card h3{font-size:1.25rem}.card p,.description{margin-top:.65rem;color:var(--muted)}.sectors{border-top:1px solid var(--line)}.sectors ul{list-style:none;padding:0}.enquiries .wrap{grid-template-columns:1fr 1fr;align-items:center}.note{border-left:3px solid var(--accent);padding:.65rem 1rem}footer{border-top:1px solid var(--line);padding:1.15rem 0;color:var(--muted);font-size:.85rem}
+[data-design=audit]{--ink:#19243d;--paper:#faf9fd;--panel:#1a2440;--accent:#50349a;--line:#dad8e9;--muted:#49536b;--head:system-ui,sans-serif}[data-design=audit] :is(.hero,.enquiries){color:white}[data-design=audit] .action{background:#dacdff;color:#241745}[data-design=audit] .art{background:#263252;color:#ccbaff;border-color:#566387}[data-design=audit] .cards{grid-template-columns:1.35fr 1fr 1fr}[data-design=audit] .card:first-child{background:#ebe6fb}
+[data-design=industry]{--ink:#254033;--paper:#fbf8ee;--panel:#e7ebd8;--accent:#305c41;--line:#cbd2bd;--muted:#4a584e}[data-design=industry] .hero-grid{grid-template-columns:.9fr 1.1fr}[data-design=industry] .hero-copy{order:2}[data-design=industry] .sectors{order:-1;background:#f0edde;border:0}[data-design=industry] .sectors li{min-height:5rem;background:var(--paper);font-weight:730}
+[data-design=boutique]{--ink:#3b2820;--paper:#fff9f2;--panel:#f7e6d9;--accent:#873e28;--line:#dfc8ba;--muted:#625149}[data-design=boutique] .hero-grid{display:block;text-align:center}[data-design=boutique] :is(h1,.intro){margin-inline:auto}[data-design=boutique] .art{width:min(355px,100%);aspect-ratio:2/1;border-radius:50% 50% 0 0;margin:2rem auto 0}[data-design=boutique] .cards{grid-template-columns:1fr;gap:0}[data-design=boutique] .card{display:grid;grid-template-columns:6rem 1fr 1.65fr;gap:1rem;border:0;border-top:1px solid var(--line)}[data-design=boutique] .card :is(span,p){margin:0}
+@media(max-width:710px){.wrap{width:calc(100% - 2rem)}.hero-grid,[data-design=industry] .hero-grid,.cards,[data-design=audit] .cards,.sectors ul,.enquiries .wrap{grid-template-columns:1fr}[data-design=industry] .hero-copy{order:-1}.art{max-height:18rem}[data-design=boutique] .card{grid-template-columns:1fr;gap:.45rem}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<aside class="review" aria-label="Design review controls"><div class="wrap row">
+<div><strong>Wolf Accounting · Client Preview</strong><small>Choose a concept to compare. Content is illustrative.</small></div>
+<div class="choices" role="group" aria-label="Website concept">
+<button type="button" data-choice="corporate" aria-pressed="true">01 Corporate</button>
+<button type="button" data-choice="audit" aria-pressed="false">02 Audit-led</button>
+<button type="button" data-choice="industry" aria-pressed="false">03 Industry-led</button>
+<button type="button" data-choice="boutique" aria-pressed="false">04 Boutique</button>
+</div></div></aside>
+<div class="site" data-design="corporate">
+<header id="top"><div class="wrap row">
+<a href="#top" class="brand"><svg viewBox="0 0 44 44" aria-hidden="true"><rect width="44" height="44" rx="8" fill="currentColor"/><path d="M8 10l10 7h8l10-7-3 17-11 8-11-8zM15 22l4 3m10-3-4 3m-5 3 2 2 2-2" fill="none" stroke="white" stroke-width="1.6" stroke-linejoin="round"/></svg>Wolf Accounting</a>
+<nav aria-label="Main navigation"><a href="#services">Services</a><a href="#sectors">Who we work with</a><a href="#enquiries">Enquiries</a></nav>
+</div></header>
+<main id="main">
+<section class="hero"><div class="wrap hero-grid"><div class="hero-copy">
+<p class="eyebrow" id="hero-label">Audit · Accounting · Advisory</p>
+<h1 id="headline">Clear accounts. Better decisions.</h1>
+<p class="intro" id="hero-text">Audit, accounting and advisory services for organisations that want to understand their numbers and plan what comes next.</p>
+<a class="action" id="hero-action" href="#services">Explore our services</a>
+</div>
+<svg class="art" viewBox="0 0 500 400" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+<g class="corporate-art"><path d="M60 332h385M95 332V154l94-44v222m0-150 94-43v193m0-121 104-45v166M109 162l63-29m-63 59 63-29m-63 59 63-29m-63 59 63-29m-63 59 63-29m33-66 63-29m-63 59 63-29m-63 59 63-29m-63 59 63-29m34-40 67-29m-67 60 67-29m-67 60 67-29"/><circle cx="338" cy="109" r="36" opacity=".5"/></g>
+<g class="audit-art"><circle cx="250" cy="196" r="125" opacity=".32"/><circle cx="250" cy="196" r="95" opacity=".55"/><path d="M220 180h60v80h-60zm11 19h38m-38 13h38m-38 13h25m-25 13h30M135 196h55m120 0h55m-115-95V70m0 221v31"/><circle cx="250" cy="70" r="5" fill="currentColor"/><circle cx="365" cy="196" r="5" fill="currentColor"/></g>
+<g class="industry-art"><path d="M62 318c48-140 97-157 150-156 71 0 104 49 225-60M62 346c48-140 113-153 158-148 73 9 113 44 217-59M62 287c48-140 99-157 144-156 88 2 129 38 231-65M62 257c48-140 100-154 149-155 101-2 129 38 226-59" opacity=".65"/><circle cx="110" cy="222" r="12" fill="currentColor"/><circle cx="239" cy="202" r="12" fill="currentColor"/><circle cx="378" cy="147" r="12" fill="currentColor"/></g>
+<g class="boutique-art"><circle cx="250" cy="197" r="117" opacity=".3"/><path d="m151 122 68 47h62l68-47-19 105-80 59-80-59zM193 196l39 21m75-21-39 21m-34 22 16 17 16-17" stroke-width="3" stroke-linejoin="round"/></g>
+</svg></div></section>
+<div class="story">
+<section class="section" id="services"><div class="wrap"><p class="eyebrow">What we do</p><h2>Our services</h2><div class="cards">
+<article class="card"><span>01 Assurance</span><h3>Audit &amp; assurance</h3><p>Understand the scope of an audit, how to prepare and what to expect from the review and reporting process.</p></article>
+<article class="card"><span>02 Reporting</span><h3>Accounts &amp; reporting</h3><p>Year-end accounts and management reporting that help directors understand performance and meet deadlines.</p></article>
+<article class="card"><span>03 Advisory</span><h3>Business advisory</h3><p>Practical support with cash flow, forecasting and the processes behind better financial decisions.</p></article>
+</div></div></section>
+<section class="section sectors" id="sectors"><div class="wrap"><p class="eyebrow">Who we work with</p><h2>Support shaped around your organisation</h2><p class="description">Different organisations have different reporting priorities. Start with the context that fits yours.</p><ul><li>Owner-managed businesses</li><li>Growing companies and groups</li><li>Charities and not-for-profits</li></ul></div></section>
+<section class="section enquiries" id="enquiries"><div class="wrap"><div><p class="eyebrow">Get in touch</p><h2>Start with a conversation</h2></div><p class="note">This is a design preview. Contact details and enquiry forms will be added to the approved site. No information is collected here.</p></div></section>
+</div></main>
+<footer><div class="wrap row"><span>Wolf Accounting · Temporary brand for design review</span><span>Illustrative services and sectors · Not a live practice website</span></div></footer>
+</div>
+<script>
+const concepts = {
+  corporate: ['Audit · Accounting · Advisory', 'Clear accounts. Better decisions.', 'Audit, accounting and advisory services for organisations that want to understand their numbers and plan what comes next.', 'Explore our services', '#services'],
+  audit: ['Audit & assurance', 'Know what your audit will involve.', 'A clear starting point for directors and finance teams preparing for an audit, from scope and evidence to timing and reporting.', 'Discuss your audit needs', '#enquiries'],
+  industry: ['Your organisation comes first', 'Start with the way you work.', 'Find a starting point for your audit and reporting needs, whether you run a business, lead a group or oversee a charity.', 'Explore by organisation', '#sectors'],
+  boutique: ['A straightforward approach', 'Make sense of the numbers.', 'Clear explanations and practical support with audit preparation, financial reporting and the decisions that follow.', 'See how we can help', '#services']
+};
+const site = document.querySelector('.site');
+const buttons = document.querySelectorAll('[data-choice]');
+const action = document.querySelector('#hero-action');
+function renderConcept() {
+  const requested = new URL(location.href).searchParams.get('design');
+  const key = Object.hasOwn(concepts, requested) ? requested : 'corporate';
+  const [label, headline, summary, callToAction, target] = concepts[key];
+  site.dataset.design = key;
+  document.querySelector('#hero-label').textContent = label;
+  document.querySelector('#headline').textContent = headline;
+  document.querySelector('#hero-text').textContent = summary;
+  action.textContent = callToAction;
+  action.setAttribute('href', target);
+  buttons.forEach(button => button.setAttribute('aria-pressed', String(button.dataset.choice === key)));
+}
+buttons.forEach(button => button.addEventListener('click', () => {
+  if (site.dataset.design === button.dataset.choice) return;
+  const address = new URL(location.href);
+  address.searchParams.set('design', button.dataset.choice);
+  address.hash = '';
+  history.pushState(null, '', address);
+  renderConcept();
+}));
+window.addEventListener('popstate', renderConcept);
+renderConcept();
+</script>
+</body>
+</html>
