@@ -31,7 +31,7 @@
 <script src="assets/site.js?v=20261126-3" defer>
 </script>
   
-<link rel="stylesheet" href="assets/refresh.css?v=20261027">
+<link rel="stylesheet" href="assets/refresh.css?v=20261127-2">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Organization", "name": "Nexus", "legalName": "NEXUSSUK LTD", "url": "https://www.nexussuk.com/", "identifier": "17515498", "email": "Info@Nexussuk.com", "address": {"@type": "PostalAddress", "streetAddress": "67 Birdhall Road", "addressLocality": "Cheadle", "postalCode": "SK8 5QE", "addressCountry": "GB"}}</script>
 <link rel="stylesheet" href="assets/explore.css?v=20261027">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Nexus Prepare","url":"https://www.nexussuk.com/nexus-prepare.html","applicationCategory":"BusinessApplication","operatingSystem":"Web browser","description":"Invoice and receipt capture software with a cloud inbox for reviewing extracted data alongside original documents.","publisher":{"@type":"Organization","name":"Nexus","url":"https://www.nexussuk.com/"}}</script>
@@ -131,9 +131,9 @@
 </h1>
 <p>Nexus Prepare connects mobile document capture with a cloud workspace for extraction, review and publishing. Keep invoices, receipts and supporting evidence in one organised workflow.</p>
 <div class="booking-options">
-<a class="button button-light" href="/?interest=Nexus%20Prepare&amp;enquiry_source=nexus_prepare#contact">Request a Nexus Prepare demo ↗</a>
-<a class="text-link light-link" href="https://app.nexussuk.com/dashboard" target="_blank" rel="noopener" data-track="prepare_login">Open the web app ↗</a>
-<a class="text-link light-link" href="#pricing">Explore plans ↓</a>
+<a class="button button-light" href="#how-it-works" data-track="prepare_walkthrough">See how it works ↓</a>
+<a class="text-link light-link" href="/?interest=Nexus%20Prepare&amp;enquiry_source=nexus_prepare#contact" data-track="prepare_demo_request">Request a demo ↗</a>
+<a class="text-link light-link" href="#pricing" data-track="prepare_pricing_view">View pricing ↓</a>
 </div>
 <div class="prepare-proof">
 <span>Mobile capture</span>
@@ -147,29 +147,36 @@
 </figure>
 </div>
 </section>
-<section class="content-section">
+<section class="content-section" id="how-it-works" aria-labelledby="prepare-walkthrough-title">
 <div class="section-heading">
 <div>
-<p class="eyebrow">One connected workflow</p>
-<h2>From a photograph<br>to a reviewable record.</h2>
+<p class="eyebrow">Product walkthrough · No login needed</p>
+<h2 id="prepare-walkthrough-title">From an invoice photo<br>to a reviewed record.</h2>
 </div>
-<p>Less time moving files around. More control over what happens before information reaches your accounting workflow.</p>
+<p>Watch a fictional purchase invoice move from mobile intake to operator review in a local test workspace. No account or upload is needed to watch.</p>
 </div>
+<figure class="showcase-card prepare-walkthrough-video">
+<video controls playsinline preload="none" width="1280" height="720" poster="assets/images/nexus-prepare-walkthrough.jpg" aria-label="Nexus Prepare: one-minute invoice intake and review walkthrough" aria-describedby="prepare-video-caption">
+<source src="assets/videos/nexus-prepare-walkthrough.mp4" type="video/mp4">
+Your browser does not support embedded video.
+</video>
+<figcaption id="prepare-video-caption"><strong>One-minute workspace walkthrough.</strong> A sample image arrives through the mobile intake API, the operator opens the original and checks the invoice details before approval. The demo uses manually entered values; live OCR and posting to accounting software are not shown. <a href="assets/videos/nexus-prepare-walkthrough.mp4">Open the video file ↗</a></figcaption>
+</figure>
 <ol class="process-list">
 <li>
 <span>01 / CAPTURE</span>
 <h3>Send it.</h3>
-<p>Take a photo, choose an existing image or attach a PDF in the mobile capture prototype.</p>
+<p>Photograph the purchase invoice or select its PDF in the mobile capture prototype. The original stays attached to the record.</p>
 </li>
 <li>
 <span>02 / EXTRACT</span>
 <h3>Read it.</h3>
-<p>Start document processing in the cloud workspace to extract available invoice fields and line items.</p>
+<p>The operator starts extraction in the cloud inbox. Nexus Prepare reads available details such as the supplier, invoice number, totals and line items.</p>
 </li>
 <li>
 <span>03 / REVIEW</span>
 <h3>Check it.</h3>
-<p>Review the original evidence alongside extracted values. Correct details before approval.</p>
+<p>Compare the review fields with the original. If the invoice says £2,220.00 but the recorded total differs, correct it before approving.</p>
 </li>
 <li>
 <span>04 / PUBLISH</span>
@@ -177,6 +184,10 @@
 <p>Prepare reviewed data for the supported publishing or export route configured for your workspace.</p>
 </li>
 </ol>
+<div class="prepare-walkthrough-next">
+<a class="text-link" href="prepare-mobile.html" data-track="prepare_mobile_view">See the mobile capture screens ↗</a>
+<a class="button button-dark" href="/?interest=Nexus%20Prepare&amp;enquiry_source=nexus_prepare#contact" data-track="prepare_demo_request">Request a live demo ↗</a>
+</div>
 </section>
 <section class="content-section alt">
 <div class="section-heading">
