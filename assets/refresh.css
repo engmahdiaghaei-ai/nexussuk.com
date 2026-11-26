@@ -1,4 +1,6 @@
 [hidden]{display:none!important}
+article.content-section.content-narrow{max-width:52rem;margin-inline:auto;padding-inline:clamp(24px,4vw,48px)}
+.contact-section[id]{scroll-margin-block-start:88px}
 .main-nav .nav-login{background:transparent;border:1px solid transparent;color:var(--ink);box-shadow:none}
 .main-nav .nav-login:hover,.main-nav .nav-login:focus-visible{border-color:var(--line);text-decoration:underline}
 .prepare-page #how-it-works,.prepare-page #pricing{scroll-margin-top:100px}
