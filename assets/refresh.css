@@ -1,5 +1,12 @@
 [hidden]{display:none!important}
-.nav-login{background:transparent;border:1px solid var(--line);color:var(--ink)}
+.main-nav .nav-login{background:transparent;border:1px solid transparent;color:var(--ink);box-shadow:none}
+.main-nav .nav-login:hover,.main-nav .nav-login:focus-visible{border-color:var(--line);text-decoration:underline}
+.prepare-page #how-it-works,.prepare-page #pricing{scroll-margin-top:100px}
+.prepare-walkthrough-next{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px 24px;margin-top:28px;padding:18px 22px;border:1px solid var(--line);border-radius:var(--radius);background:var(--cream)}
+.prepare-walkthrough-video{max-width:960px;margin:0 auto 30px}
+.prepare-walkthrough-video video{aspect-ratio:16/9}
+.prepare-walkthrough-video figcaption{font-size:14px;line-height:1.65;color:var(--muted)}
+.prepare-walkthrough-video a{text-decoration:underline}
 .main-nav{gap:22px}
 .prepare-home{margin-bottom:32px}
 .prepare-web-preview img{display:block;width:100%;height:auto}
