@@ -22,6 +22,14 @@
 <link rel="stylesheet" href="assets/enhancements.css">
 <link rel="stylesheet" href="assets/refresh.css?v=20261027">
 <link rel="stylesheet" href="assets/explore.css?v=20261027">
+<style>
+#visual-brief .case-layout{align-items:start}
+#visual-brief input,#visual-brief select{margin-bottom:16px}
+#visual-brief label{margin-bottom:2px}
+#visual-brief :is(input,select,textarea):focus-visible{outline:2px solid #246f6a;outline-offset:2px}
+.visual-brief-output{display:block;width:100%;padding:12px;margin:10px 0 14px;border:1px solid var(--line);border-radius:8px;background:var(--paper);color:var(--ink);font:inherit;resize:vertical}
+#visual-brief-status{margin:10px 0 0}
+</style>
 <script src="assets/config.js">
 </script>
 <script src="assets/analytics.js">
@@ -116,15 +124,19 @@
 <main id="main">
 <section class="page-hero">
 <p class="eyebrow">BI plugins & product engineering</p>
-<h1>When standard visuals<br>are not enough.</h1>
-<p>Purpose-built Power BI visuals, reporting components and specialist tools that bring your workflow into focus. Designed around a clear reporting requirement, not a decoration.</p>
+<h1>Bespoke Power BI<br>custom visuals.</h1>
+<p>Commission a standalone visual for Microsoft Power BI when built-in charts cannot support your reporting workflow. Nexus can scope, design, build and test the component, then package it for the distribution route agreed with your team.</p>
+<div class="explore-links" aria-label="Custom visual next steps">
+<a href="nexus-insightcards.html">See the visual we built ↗</a>
+<a href="#visual-brief">Try the free project brief ↓</a>
+</div>
 </section>
 <section class="content-section">
 <div class="product-hero-grid">
 <div>
 <p class="eyebrow">Our own product</p>
 <h2>InsightCards.<br>Built, not just proposed.</h2>
-<p>Nexus InsightCards is our Power BI custom visual. Explore the actual demonstration report, product films and downloadable showcase before discussing a bespoke component.</p>
+<p>We built Nexus InsightCards as a standalone Power BI visual. It combines KPIs, period comparisons, sparklines and narrative alerts in one responsive grid. Try the downloadable Power BI showcase to see what that means inside a report.</p>
 <div class="explore-links" aria-label="Related pages">
 <a href="nexus-insightcards.html">Explore InsightCards ↗</a>
 <a href="dashboard-gallery.html#product-films">Watch product films ↗</a>
@@ -157,11 +169,40 @@
 <div class="cta-panel">
 <div>
 <h2>Have a visual that does not exist yet?</h2>
-<p>Send a sketch, sample data and the interaction your users need.</p>
+<p>Tell us which decision the visual should support, what the built-in options miss and which actions users need to take.</p>
 </div>
 <a class="button" href="index.html?interest=Custom%20Software#contact">Discuss your project ↗</a>
 </div>
 </section>
+<section class="content-section" id="visual-brief">
+<div class="section-heading">
+<div><p class="eyebrow">Free project tool</p><h2>Build a Power BI visual brief</h2></div>
+<p>Turn a reporting requirement into a brief you can share with your team or a developer. No sign-up, file upload or price estimate.</p>
+</div>
+<div class="case-layout">
+<form class="contact-form" id="visual-brief-form">
+<label for="visual-audience">Who will use it?</label>
+<input id="visual-audience" name="audience" placeholder="For example: operations managers" maxlength="100" required>
+<label for="visual-decision">What will it help them decide?</label>
+<input id="visual-decision" name="decision" placeholder="Which late orders should we prioritise?" maxlength="160" required>
+<label for="visual-gap">What is missing from standard visuals?</label>
+<input id="visual-gap" name="gap" placeholder="See delivery risk and trends together" maxlength="160" required>
+<label for="visual-distribution">Where will the visual be used?</label>
+<select id="visual-distribution" name="distribution">
+<option>Internal reports</option><option>Embedded or client-facing reports</option><option>Public marketplace candidate</option><option>Not yet decided</option>
+</select>
+<button class="button button-dark" type="submit" disabled>Generate brief</button>
+<noscript><p>Enable JavaScript to generate a brief locally.</p></noscript>
+</form>
+<div class="info-card">
+<label for="visual-brief-result">Your project brief</label>
+<textarea id="visual-brief-result" class="visual-brief-output" rows="12" readonly placeholder="Your brief will appear here."></textarea>
+<button class="button button-small" type="button" id="visual-brief-download" disabled>Download brief (.txt)</button>
+<p role="status" id="visual-brief-status">Your answers stay in this browser. Do not enter sensitive information.</p>
+</div>
+</div>
+</section>
+<script src="assets/visual-brief.js" defer></script>
 </main>
 <footer class="site-footer">
 <div class="footer-brand">
