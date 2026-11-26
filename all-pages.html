@@ -117,10 +117,18 @@
 <section class="page-hero">
 <p class="eyebrow">The full website</p>
 <h1>Everything Nexus.<br>One clear starting point.</h1>
-<p>All 23 current public pages, grouped by purpose. The four headline navigation links adapt to the page you are viewing; All pages always gives you the complete picture.</p>
+<p>Find a service, product, example or guide. The four headline navigation links adapt to the page you are viewing; this directory brings the public pages together.</p>
 </section>
 <section class="content-section">
-<div class="directory-grid">
+<div id="directory-search-panel" hidden>
+<div>
+<label for="directory-search">Search Nexus pages</label>
+<p id="directory-search-help">Try Power BI, invoice OCR, PBIX, chatbot or dashboard examples.</p>
+<input type="search" id="directory-search" aria-describedby="directory-search-help" aria-controls="page-directory" maxlength="120">
+<p id="directory-status" role="status"></p>
+</div>
+</div>
+<div class="directory-grid" id="page-directory">
 <section class="directory-group">
 <h2>Expertise</h2>
 <ul>
@@ -128,16 +136,16 @@
 <a href="enterprise-bi.html">Enterprise BI strategy ↗</a>
 </li>
 <li>
-<a href="power-bi-consulting.html">Power BI consulting ↗</a>
+<a href="power-bi-consulting.html" data-search="dashboard reporting report dax performance consultant uk">Power BI consulting ↗</a>
 </li>
 <li>
-<a href="microsoft-fabric-data.html">Microsoft Fabric &amp; data ↗</a>
+<a href="microsoft-fabric-data.html" data-search="lakehouse warehouse sql etl pipelines ssis ssas">Microsoft Fabric &amp; data ↗</a>
 </li>
 <li>
 <a href="bi-plugins.html">BI plugins &amp; custom visuals ↗</a>
 </li>
 <li>
-<a href="custom-software.html">Software development ↗</a>
+<a href="custom-software.html" data-search="website mobile app personal desktop windows chatbot bot ai agent assistant automation">Software development ↗</a>
 </li>
 </ul>
 </section>
@@ -148,7 +156,7 @@
 <a href="products.html">Product collection ↗</a>
 </li>
 <li>
-<a href="nexus-prepare.html">Nexus Prepare ↗</a>
+<a href="nexus-prepare.html" data-search="invoice receipt ocr extraction capture demo pricing document">Nexus Prepare ↗</a>
 </li>
 <li>
 <a href="accounting-integrations.html">Sage, Xero &amp; integrations ↗</a>
@@ -157,7 +165,7 @@
 <a href="prepare-mobile.html">Prepare mobile capture ↗</a>
 </li>
 <li>
-<a href="nexus-insightcards.html">Nexus InsightCards ↗</a>
+<a href="nexus-insightcards.html" data-search="power bi custom visual pbix pbiviz download plugin kpi">Nexus InsightCards ↗</a>
 </li>
 </ul>
 </section>
@@ -171,11 +179,13 @@
 <a href="dashboard-gallery.html">Dashboard images &amp; films ↗</a>
 </li>
 <li>
-<a href="dashboard-studio.html">Interactive design concepts ↗</a>
+<a href="dashboard-studio.html" data-search="dashboard examples saas manufacturing retail subscription industry">Interactive design concepts ↗</a>
 </li>
 <li>
 <a href="insights.html">Insights &amp; approach ↗</a>
 </li>
+<li><a href="power-bi-report-performance-guide.html" data-search="slow dax optimising optimizing performance analyzer">How to diagnose a slow Power BI report ↗</a></li>
+<li><a href="invoice-capture-review-guide.html" data-search="receipt ocr extraction duplicate accounting workflow">Invoice capture and review workflow ↗</a></li>
 </ul>
 </section>
 <section class="directory-group">
@@ -302,5 +312,39 @@
 </nav>
 </div>
 </footer>
+<script>
+(() => {
+  const searchPanel = document.getElementById('directory-search-panel');
+  const input = document.getElementById('directory-search');
+  const status = document.getElementById('directory-status');
+  const groups = [...document.querySelectorAll('#page-directory .directory-group')];
+  const normalise = (value) => value.toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim();
+  const entries = groups.map((group) => ({
+    group,
+    items: [...group.querySelectorAll('li')].map((item) => {
+      const link = item.querySelector('a');
+      return { item, text: normalise(`${link.textContent} ${link.dataset.search || ''}`) };
+    })
+  }));
+  input.addEventListener('input', () => {
+    const terms = normalise(input.value).split(' ').filter(Boolean);
+    let matches = 0;
+    for (const { group, items } of entries) {
+      let groupMatches = 0;
+      for (const { item, text } of items) {
+        const matchesQuery = terms.every((term) => text.includes(term));
+        item.hidden = !matchesQuery;
+        if (matchesQuery) groupMatches++;
+      }
+      group.hidden = groupMatches === 0;
+      matches += groupMatches;
+    }
+    status.textContent = !terms.length ? '' : matches === 0
+      ? 'No matches. Try a product name or a shorter search.'
+      : `${matches} matching ${matches === 1 ? 'link' : 'links'}.`;
+  });
+  searchPanel.hidden = false;
+})();
+</script>
 </body>
 </html>
