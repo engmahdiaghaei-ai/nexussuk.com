@@ -25,20 +25,25 @@
     }
   }
   function track(name, details = {}) {
+    if (localStorage.getItem(consentKey) !== "accepted") return;
     if (typeof window.gtag === "function") window.gtag("event", name, details);
     if (typeof window.clarity === "function") window.clarity("event", name);
   }
   function saveConsent(value) {
     localStorage.setItem(consentKey, value); document.getElementById("cookie-banner")?.remove();
     if (value === "accepted") loadConsentAnalytics();
+    if (value === "declined" && analyticsLoaded) {
+      if (config.ga4MeasurementId) window[`ga-disable-${config.ga4MeasurementId}`] = true;
+      window.location.reload();
+    }
   }
-  function showBanner() {
-    if (localStorage.getItem(consentKey) || document.getElementById("cookie-banner")) return;
+  function showBanner(reopen = false) {
+    if ((!reopen && localStorage.getItem(consentKey)) || document.getElementById("cookie-banner")) return;
     const banner = document.createElement("aside"); banner.id = "cookie-banner"; banner.className = "cookie-banner"; banner.setAttribute("aria-label", "Cookie preferences");
     banner.innerHTML = `<div><strong>Your privacy matters</strong><p>We use optional analytics to understand site usage and improve our services. Essential site features work without them.</p></div><div class="cookie-actions"><button class="button button-small" data-consent="accepted">Accept analytics</button><button class="cookie-decline" data-consent="declined">Decline</button><a href="cookies.html">Cookie policy</a></div>`;
     document.body.appendChild(banner);
     banner.querySelectorAll("[data-consent]").forEach((button) => button.addEventListener("click", () => saveConsent(button.dataset.consent)));
   }
   loadCloudflare(); if (localStorage.getItem(consentKey) === "accepted") loadConsentAnalytics();
-  window.addEventListener("DOMContentLoaded", showBanner); window.NexusAnalytics = { track, saveConsent, showBanner };
+  window.addEventListener("DOMContentLoaded", () => showBanner()); window.NexusAnalytics = { track, saveConsent, showBanner };
 })();

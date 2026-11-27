@@ -74,7 +74,7 @@ document.querySelectorAll('.copy-email').forEach((button) => {
     try {
       await navigator.clipboard.writeText(button.dataset.email);
       if (label) label.textContent = 'Copied';
-      window.NexusAnalytics?.track('email_copy', { email: button.dataset.email });
+      window.NexusAnalytics?.track('email_copy');
     } catch {
       if (label) label.textContent = button.dataset.email;
     }
@@ -124,9 +124,15 @@ document.querySelectorAll('a').forEach((link) => {
     if (href.includes('github.com')) window.NexusAnalytics?.track('github_click');
     if (href.includes('linkedin.com')) window.NexusAnalytics?.track('linkedin_click');
     if (href.includes('wa.me')) window.NexusAnalytics?.track('whatsapp_click');
-    if (href.startsWith('mailto:')) window.NexusAnalytics?.track('email_click', { email: href.slice(7).split('?')[0] });
+    if (href.startsWith('mailto:')) window.NexusAnalytics?.track('email_click');
     if (link.dataset.track) window.NexusAnalytics?.track(link.dataset.track);
   });
+});
+
+document.querySelectorAll('video[data-analytics-video]').forEach((video) => {
+  const detail = { video_id: video.dataset.analyticsVideo };
+  video.addEventListener('playing', () => window.NexusAnalytics?.track('prepare_video_start', detail), { once: true });
+  video.addEventListener('ended', () => window.NexusAnalytics?.track('prepare_video_complete', detail), { once: true });
 });
 
 import('./assistant.js?v=1').catch((error) => console.warn('Nexus Assistant could not load.', error));
@@ -158,5 +164,5 @@ if (bookingLink && window.NEXUS_CONFIG?.bookingUrl) {
 }
 
 document.querySelectorAll('[data-cookie-settings]').forEach((button) => button.addEventListener('click', () => {
-  localStorage.removeItem('nexus-analytics-consent'); window.NexusAnalytics?.showBanner();
+  window.NexusAnalytics?.showBanner(true);
 }));
