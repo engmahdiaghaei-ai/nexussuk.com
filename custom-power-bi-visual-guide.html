@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>When to Build a Custom Power BI Visual | Nexus</title>
+<meta name="description" content="Compare built-in Power BI charts, AppSource visuals and bespoke development. Use a testable brief to decide which route fits your reporting workflow.">
+<link rel="canonical" href="https://www.nexussuk.com/custom-power-bi-visual-guide.html">
+<link rel="icon" href="assets/favicon.svg">
+<meta property="og:type" content="article">
+<meta property="og:title" content="When to Build a Custom Power BI Visual | Nexus">
+<meta property="og:description" content="A practical guide to choosing between built-in Power BI charts, AppSource and bespoke development.">
+<meta property="og:url" content="https://www.nexussuk.com/custom-power-bi-visual-guide.html">
+<link rel="stylesheet" href="assets/styles.css">
+<link rel="stylesheet" href="assets/enhancements.css">
+<link rel="stylesheet" href="assets/explore.css?v=20261027">
+<link rel="stylesheet" href="assets/ai.css">
+<script src="assets/config.js"></script>
+<script src="assets/analytics.js?v=20261127"></script>
+<script src="assets/site.js?v=20261127" defer></script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"When is a custom Power BI visual worth building?","description":"A practical guide to choosing between built-in Power BI charts, AppSource and bespoke development.","mainEntityOfPage":"https://www.nexussuk.com/custom-power-bi-visual-guide.html","inLanguage":"en-GB","author":{"@type":"Organization","name":"Nexus","url":"https://www.nexussuk.com/company.html"},"publisher":{"@type":"Organization","name":"Nexus","url":"https://www.nexussuk.com/"}}</script>
+</head>
+<body>
+<main id="main">
+<section class="page-hero">
+<p class="eyebrow">Nexus · Power BI design guide</p>
+<h1>When is a custom Power BI visual worth building?</h1>
+<p>Start with the decision people need to make, not the shape you want to draw. Choose the simplest visual that lets users make that decision accurately and repeatedly.</p>
+<a class="text-link light-link" href="insights.html">Back to Insights ↗</a>
+</section>
+<section class="content-section content-narrow">
+<h2>Choose between three routes</h2>
+<p><strong>Use a built-in visual</strong> when a standard chart, matrix or KPI already answers the question. Before starting a new build, try clearer measures, sorting, conditional formatting or splitting an overcrowded page.</p>
+<p><strong>Trial an existing AppSource visual</strong> when it already supports the required interaction. Test it in a copy of your report with representative data. Check licensing, tenant restrictions, updates and any export or accessibility requirements before rolling it out.</p>
+<p><strong>Commission a custom visual</strong> when users need an interaction or arrangement they cannot achieve reliably with either alternative. Good candidates tend to solve a repeated workflow, have a named business owner and come with a plan for testing and updates.</p>
+<h2>Example: prioritising late deliveries</h2>
+<p>Imagine a dispatcher who reviews late orders every morning. If the job is just to rank the worst performers, a sorted bar chart or table is likely enough. But if the dispatcher must screen orders by urgency, compare promised and revised delivery windows, and select an order to reveal its history, test whether the existing report can do all three without ambiguity.</p>
+<p>For an illustrative pilot, give reviewers the same 15 synthetic orders and the same three prioritisation tasks in each design. Compare task completion time and incorrect choices. Keep the new design only if the evidence justifies the added maintenance. These are example test conditions, not customer results.</p>
+<h2>Write a brief you can test</h2>
+<ol class="feature-list">
+<li><strong>Audience and decision:</strong> name the users, how often they work with the report and what action they should take.</li>
+<li><strong>Data and edge cases:</strong> include expected fields, representative volume, blanks, duplicate labels and unusually long values.</li>
+<li><strong>Behaviour:</strong> define what happens on filtering and selection, including empty states and interaction with the rest of the report.</li>
+<li><strong>Accessibility and performance:</strong> check keyboard navigation and colour-independent status cues. Compare the same report interactions with Power BI Performance Analyzer before and after the change.</li>
+<li><strong>Distribution:</strong> agree who can install and maintain the visual, and validate it in the environments your users actually work in. A public marketplace listing and Microsoft certification are separate considerations.</li>
+</ol>
+<p>Use the <a href="bi-plugins.html#visual-brief" data-track="custom_visual_brief_click">free Power BI visual brief builder</a> to turn an idea into a short brief. For a real product example, see <a href="nexus-insightcards.html">Nexus InsightCards</a>. If the problem is slow rendering rather than a missing interaction, start with <a href="power-bi-report-performance-guide.html">our Power BI performance guide</a>.</p>
+<h2>Microsoft documentation</h2>
+<ul>
+<li><a href="https://learn.microsoft.com/en-us/power-bi/developer/visuals/power-bi-custom-visuals">Sources of Power BI visuals</a></li>
+<li><a href="https://learn.microsoft.com/en-us/power-bi/developer/visuals/power-bi-custom-visuals-certified">Power BI visual certification</a></li>
+<li><a href="https://learn.microsoft.com/en-us/power-bi/create-reports/performance-analyzer">Power BI Performance Analyzer</a></li>
+</ul>
+<p><a class="button button-dark" href="index.html?interest=Custom%20Software#contact" data-track="custom_visual_enquiry_click">Discuss a Power BI visual ↗</a></p>
+</section>
+</main>
+<footer class="site-footer">
+<div class="footer-brand"><a href="index.html">Nexus home</a><p>NEXUSSUK LTD trading as Nexus.</p></div>
+<div class="footer-group"><a href="insights.html">Insights</a><a href="bi-plugins.html">Power BI custom visual development</a><a href="company.html">About Us</a><a href="index.html#contact">Contact Us</a></div>
+<div class="footer-legal"><nav aria-label="Legal information"><a href="privacy.html">Privacy</a><a href="cookies.html">Cookies</a><button type="button" class="footer-cookie" data-cookie-settings>Cookie settings</button></nav></div>
+</footer>
+</body>
+</html>
