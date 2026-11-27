@@ -26,7 +26,13 @@
   }
   function track(name, details = {}) {
     if (localStorage.getItem(consentKey) !== "accepted") return;
-    if (typeof window.gtag === "function") window.gtag("event", name, details);
+    if (typeof window.gtag === "function") {
+      if (name === "generate_lead") {
+        if (config.ga4MeasurementId) window.gtag("event", name, { ...details, send_to: config.ga4MeasurementId });
+      } else {
+        window.gtag("event", name, details);
+      }
+    }
     if (typeof window.clarity === "function") window.clarity("event", name);
   }
   function saveConsent(value) {
