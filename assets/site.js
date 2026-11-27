@@ -36,7 +36,7 @@ const interestField = document.getElementById('contact-interest');
 const formStatus = document.getElementById('form-status');
 const enquiryParameters = new URLSearchParams(window.location.search);
 const requestedSource = enquiryParameters.get('enquiry_source');
-const enquirySource = ['power_bi_consulting', 'nexus_prepare'].includes(requestedSource) ? requestedSource : 'other';
+const enquirySource = ['power_bi_consulting', 'nexus_prepare', 'bi_plugins'].includes(requestedSource) ? requestedSource : 'other';
 
 if (interestField && window.location) {
   const requestedInterest = enquiryParameters.get('interest');
